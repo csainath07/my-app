@@ -59,3 +59,8 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+set :branch, 'main'
+set :deploy_to, '/var/www/my-app'
+server "65.0.91.187", user: "user", port: 22, roles: %{web}
+
+set :build_command, 'yarn build'
