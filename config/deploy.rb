@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.1'
+lock '3.17.1'
 
 set :application, 'my-app'
 set :repo_url, 'git@github.com:csainath07/my-app.git'
@@ -24,11 +24,11 @@ set :deploy_to, '/var/www/my-app'
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
-set :linked_files, ".env"
+# set :linked_files, ".env"
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-set :linked_dirs, "node_modules"
+# set :linked_dirs, "node_modules"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -38,7 +38,6 @@ set :linked_dirs, "node_modules"
 
 set :nvm_type, :user
 set :nvm_node, 'v18.14.0'
-set :nvm_map_bins, %w{node npm yarn}
 set :ssh_options, { :forward_agent => true }
 set :yarn_flags, %w(--silent --no-progress)
 
