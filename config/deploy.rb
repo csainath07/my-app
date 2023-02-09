@@ -35,11 +35,12 @@ set :deploy_to, '/var/www/my-app'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
+append :linked_dirs, "node_modules"
 set :nvm_type, :user
 set :nvm_node, 'v18.14.0'
 set :ssh_options, { :forward_agent => true }
 set :yarn_flags, %w(--silent --no-progress)
+set :nvm_map_bins, %w{node npm yarn}
 
 namespace :deploy do
 
