@@ -63,4 +63,4 @@ set :branch, 'main'
 set :deploy_to, '/var/www/my-app'
 server "13.233.183.72", user: "ubuntu", port: 22, roles: %{web}
 
-set :build_command, 'yarn build && forever restart -c "sudo npm run start:prod" ./'
+set :build_command, 'yarn build && forever restartall'
