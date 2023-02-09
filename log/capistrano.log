@@ -716,3 +716,100 @@
   INFO [4c3c500d] Running /usr/bin/env echo "Branch main (at 1ca097faff8f2d91aca38a2a8b6df9defa07e0d5) deployed as release 20230209083815 by sai" >> /var/www/my-app/revisions.log as ubuntu@13.233.183.72
  DEBUG [4c3c500d] Command: cd /var/www/my-app/releases && ( export NODE_VERSION="v18.14.0" ; /usr/bin/env echo "Branch main (at 1ca097faff8f2d91aca38a2a8b6df9defa07e0d5) deployed as release 20230209083815 by sai" >> /var/www/my-app/revisions.log )
   INFO [4c3c500d] Finished in 0.154 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2023-02-09 14:41:10 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [52fb002d] Running /usr/bin/env mkdir -p /tmp/my-app/ as ubuntu@13.233.183.72
+ DEBUG [52fb002d] Command: /usr/bin/env mkdir -p /tmp/my-app/
+  INFO [52fb002d] Finished in 0.836 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/my-app/nvm-exec.sh 0.0%
+  INFO Uploading /tmp/my-app/nvm-exec.sh 100.0%
+  INFO [0c2d45a2] Running /usr/bin/env chmod +x /tmp/my-app/nvm-exec.sh as ubuntu@13.233.183.72
+ DEBUG [0c2d45a2] Command: /usr/bin/env chmod +x /tmp/my-app/nvm-exec.sh
+  INFO [0c2d45a2] Finished in 0.150 seconds with exit status 0 (successful).
+ DEBUG [bb28ee18] Running [ -d $HOME/.nvm/v18.14.0 ] || [ -d $HOME/.nvm/versions/node/v18.14.0 ] as ubuntu@13.233.183.72
+ DEBUG [bb28ee18] Command: [ -d $HOME/.nvm/v18.14.0 ] || [ -d $HOME/.nvm/versions/node/v18.14.0 ]
+ DEBUG [bb28ee18] Finished in 0.254 seconds with exit status 0 (successful).
+  INFO [3be9a9f0] Running /usr/bin/env mkdir -p /tmp as ubuntu@13.233.183.72
+ DEBUG [3be9a9f0] Command: ( export NODE_VERSION="v18.14.0" ; /usr/bin/env mkdir -p /tmp )
+  INFO [3be9a9f0] Finished in 0.068 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-9d55d43bf07a582ac20f.sh 0.0%
+  INFO Uploading /tmp/git-ssh-9d55d43bf07a582ac20f.sh 100.0%
+  INFO [8fe479db] Running /usr/bin/env chmod 700 /tmp/git-ssh-9d55d43bf07a582ac20f.sh as ubuntu@13.233.183.72
+ DEBUG [8fe479db] Command: ( export NODE_VERSION="v18.14.0" ; /usr/bin/env chmod 700 /tmp/git-ssh-9d55d43bf07a582ac20f.sh )
+  INFO [8fe479db] Finished in 0.178 seconds with exit status 0 (successful).
+  INFO [0f2f29dc] Running /usr/bin/env git ls-remote git@github.com:csainath07/my-app.git HEAD as ubuntu@13.233.183.72
+ DEBUG [0f2f29dc] Command: ( export NODE_VERSION="v18.14.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-9d55d43bf07a582ac20f.sh" ; /usr/bin/env git ls-remote git@github.com:csainath07/my-app.git HEAD )
+ DEBUG [0f2f29dc] 	242f35e7cfb11726020c8f089cc80dafe6bdde11	HEAD
+  INFO [0f2f29dc] Finished in 2.814 seconds with exit status 0 (successful).
+  INFO [b3514b95] Running /usr/bin/env mkdir -p /var/www/my-app/shared /var/www/my-app/releases as ubuntu@13.233.183.72
+ DEBUG [b3514b95] Command: ( export NODE_VERSION="v18.14.0" ; /usr/bin/env mkdir -p /var/www/my-app/shared /var/www/my-app/releases )
+  INFO [b3514b95] Finished in 0.174 seconds with exit status 0 (successful).
+ DEBUG [d6098a24] Running [ -f /var/www/my-app/current/REVISION ] as ubuntu@13.233.183.72
+ DEBUG [d6098a24] Command: [ -f /var/www/my-app/current/REVISION ]
+ DEBUG [d6098a24] Finished in 0.126 seconds with exit status 0 (successful).
+ DEBUG [64531b13] Running /usr/bin/env cat /var/www/my-app/current/REVISION 2>/dev/null as ubuntu@13.233.183.72
+ DEBUG [64531b13] Command: ( export NODE_VERSION="v18.14.0" ; /usr/bin/env cat /var/www/my-app/current/REVISION 2>/dev/null )
+ DEBUG [64531b13] 	1ca097faff8f2d91aca38a2a8b6df9defa07e0d5
+ DEBUG [64531b13] Finished in 0.148 seconds with exit status 0 (successful).
+ DEBUG [9b3244d3] Running [ -f /var/www/my-app/repo/HEAD ] as ubuntu@13.233.183.72
+ DEBUG [9b3244d3] Command: [ -f /var/www/my-app/repo/HEAD ]
+ DEBUG [9b3244d3] Finished in 0.058 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/my-app/repo
+ DEBUG [52c8e78e] Running if test ! -d /var/www/my-app/repo; then echo "Directory does not exist '/var/www/my-app/repo'" 1>&2; false; fi as ubuntu@13.233.183.72
+ DEBUG [52c8e78e] Command: if test ! -d /var/www/my-app/repo; then echo "Directory does not exist '/var/www/my-app/repo'" 1>&2; false; fi
+ DEBUG [52c8e78e] Finished in 0.135 seconds with exit status 0 (successful).
+  INFO [1448a1b5] Running /usr/bin/env git remote set-url origin git@github.com:csainath07/my-app.git as ubuntu@13.233.183.72
+ DEBUG [1448a1b5] Command: cd /var/www/my-app/repo && ( export NODE_VERSION="v18.14.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-9d55d43bf07a582ac20f.sh" ; /usr/bin/env git remote set-url origin git@github.com:csainath07/my-app.git )
+  INFO [1448a1b5] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [025e82a8] Running /usr/bin/env git remote update --prune as ubuntu@13.233.183.72
+ DEBUG [025e82a8] Command: cd /var/www/my-app/repo && ( export NODE_VERSION="v18.14.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-9d55d43bf07a582ac20f.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [025e82a8] 	Fetching origin
+ DEBUG [025e82a8] 	From github.com:csainath07/my-app
+   1ca097f..242f35e  main       -> main
+  INFO [025e82a8] Finished in 2.868 seconds with exit status 0 (successful).
+ DEBUG [365f9817] Running if test ! -d /var/www/my-app/repo; then echo "Directory does not exist '/var/www/my-app/repo'" 1>&2; false; fi as ubuntu@13.233.183.72
+ DEBUG [365f9817] Command: if test ! -d /var/www/my-app/repo; then echo "Directory does not exist '/var/www/my-app/repo'" 1>&2; false; fi
+ DEBUG [365f9817] Finished in 0.057 seconds with exit status 0 (successful).
+  INFO [d335ee24] Running /usr/bin/env mkdir -p /var/www/my-app/releases/20230209091115 as ubuntu@13.233.183.72
+ DEBUG [d335ee24] Command: cd /var/www/my-app/repo && ( export NODE_VERSION="v18.14.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-9d55d43bf07a582ac20f.sh" ; /usr/bin/env mkdir -p /var/www/my-app/releases/20230209091115 )
+  INFO [d335ee24] Finished in 0.062 seconds with exit status 0 (successful).
+  INFO [6fc0a0a9] Running /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /var/www/my-app/releases/20230209091115 as ubuntu@13.233.183.72
+ DEBUG [6fc0a0a9] Command: cd /var/www/my-app/repo && ( export NODE_VERSION="v18.14.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-9d55d43bf07a582ac20f.sh" ; /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /var/www/my-app/releases/20230209091115 )
+  INFO [6fc0a0a9] Finished in 0.068 seconds with exit status 0 (successful).
+ DEBUG [8fbc836e] Running if test ! -d /var/www/my-app/repo; then echo "Directory does not exist '/var/www/my-app/repo'" 1>&2; false; fi as ubuntu@13.233.183.72
+ DEBUG [8fbc836e] Command: if test ! -d /var/www/my-app/repo; then echo "Directory does not exist '/var/www/my-app/repo'" 1>&2; false; fi
+ DEBUG [8fbc836e] Finished in 0.062 seconds with exit status 0 (successful).
+ DEBUG [3c3b7fc3] Running /usr/bin/env git rev-list --max-count=1 main as ubuntu@13.233.183.72
+ DEBUG [3c3b7fc3] Command: cd /var/www/my-app/repo && ( export NODE_VERSION="v18.14.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-9d55d43bf07a582ac20f.sh" ; /usr/bin/env git rev-list --max-count=1 main )
+ DEBUG [3c3b7fc3] 	242f35e7cfb11726020c8f089cc80dafe6bdde11
+ DEBUG [3c3b7fc3] Finished in 0.062 seconds with exit status 0 (successful).
+ DEBUG [3cd87cde] Running if test ! -d /var/www/my-app/releases/20230209091115; then echo "Directory does not exist '/var/www/my-app/releases/20230209091115'" 1>&2; false; fi as ubuntu@13.233.183.72
+ DEBUG [3cd87cde] Command: if test ! -d /var/www/my-app/releases/20230209091115; then echo "Directory does not exist '/var/www/my-app/releases/20230209091115'" 1>&2; false; fi
+ DEBUG [3cd87cde] Finished in 0.058 seconds with exit status 0 (successful).
+  INFO [186ae4b5] Running /usr/bin/env echo "242f35e7cfb11726020c8f089cc80dafe6bdde11" > REVISION as ubuntu@13.233.183.72
+ DEBUG [186ae4b5] Command: cd /var/www/my-app/releases/20230209091115 && ( export NODE_VERSION="v18.14.0" ; /usr/bin/env echo "242f35e7cfb11726020c8f089cc80dafe6bdde11" > REVISION )
+  INFO [186ae4b5] Finished in 0.061 seconds with exit status 0 (successful).
+ DEBUG [8f35edb8] Running if test ! -d /var/www/my-app/releases/20230209091115; then echo "Directory does not exist '/var/www/my-app/releases/20230209091115'" 1>&2; false; fi as ubuntu@13.233.183.72
+ DEBUG [8f35edb8] Command: if test ! -d /var/www/my-app/releases/20230209091115; then echo "Directory does not exist '/var/www/my-app/releases/20230209091115'" 1>&2; false; fi
+ DEBUG [8f35edb8] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [779b6871] Running /tmp/my-app/nvm-exec.sh yarn install --silent --no-progress as ubuntu@13.233.183.72
+ DEBUG [779b6871] Command: cd /var/www/my-app/releases/20230209091115 && ( export NODE_VERSION="v18.14.0" ; /tmp/my-app/nvm-exec.sh yarn install --silent --no-progress )
+ DEBUG [779b6871] 	Now using node v18.14.0 (npm v9.3.1)
+  INFO [779b6871] Finished in 11.794 seconds with exit status 0 (successful).
+  INFO [8f6f0964] Running /usr/bin/env ln -s /var/www/my-app/releases/20230209091115 /var/www/my-app/releases/current as ubuntu@13.233.183.72
+ DEBUG [8f6f0964] Command: ( export NODE_VERSION="v18.14.0" ; /usr/bin/env ln -s /var/www/my-app/releases/20230209091115 /var/www/my-app/releases/current )
+  INFO [8f6f0964] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [d5adf711] Running /usr/bin/env mv /var/www/my-app/releases/current /var/www/my-app as ubuntu@13.233.183.72
+ DEBUG [d5adf711] Command: ( export NODE_VERSION="v18.14.0" ; /usr/bin/env mv /var/www/my-app/releases/current /var/www/my-app )
+  INFO [d5adf711] Finished in 0.164 seconds with exit status 0 (successful).
+ DEBUG [bb98f759] Running /usr/bin/env ls -x /var/www/my-app/releases as ubuntu@13.233.183.72
+ DEBUG [bb98f759] Command: ( export NODE_VERSION="v18.14.0" ; /usr/bin/env ls -x /var/www/my-app/releases )
+ DEBUG [bb98f759] 	20230209083815	20230209091115
+ DEBUG [bb98f759] Finished in 0.061 seconds with exit status 0 (successful).
+ DEBUG [51b831b4] Running if test ! -d /var/www/my-app/releases; then echo "Directory does not exist '/var/www/my-app/releases'" 1>&2; false; fi as ubuntu@13.233.183.72
+ DEBUG [51b831b4] Command: if test ! -d /var/www/my-app/releases; then echo "Directory does not exist '/var/www/my-app/releases'" 1>&2; false; fi
+ DEBUG [51b831b4] Finished in 0.137 seconds with exit status 0 (successful).
+  INFO [4339f043] Running /usr/bin/env echo "Branch main (at 242f35e7cfb11726020c8f089cc80dafe6bdde11) deployed as release 20230209091115 by sai" >> /var/www/my-app/revisions.log as ubuntu@13.233.183.72
+ DEBUG [4339f043] Command: cd /var/www/my-app/releases && ( export NODE_VERSION="v18.14.0" ; /usr/bin/env echo "Branch main (at 242f35e7cfb11726020c8f089cc80dafe6bdde11) deployed as release 20230209091115 by sai" >> /var/www/my-app/revisions.log )
+  INFO [4339f043] Finished in 0.209 seconds with exit status 0 (successful).
