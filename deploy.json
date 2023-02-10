@@ -1,4 +1,4 @@
 {
   "name": "nextjs",
-  "script": "sudo npm run start:prod"
+  "script": "cd /var/www/my-app/current && sudo npm run start:prod"
 }
