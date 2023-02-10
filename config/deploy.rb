@@ -47,7 +47,10 @@ namespace :deploy do
   desc 'Restart application'
     task :restart do
       set :keep_releases, 2
-      invoke 'react:build'
+      invoke 'react:next_build'
+      invoke 'react:copy_pm2_deploy_script'
+      invoke 'react:free_port_80'
+      invoke 'react:start_pm2'
     end  
 
 end
