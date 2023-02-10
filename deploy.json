@@ -1,4 +1,4 @@
 {
   "name": "nextjs",
-  "script": "cd /var/www/my-app/current && sudo npm run start:prod"
+  "script": "pm2 kill && sudo kill -9 $(sudo lsof -t -i:80) && cd /var/www/my-app/current && sudo npm run start:prod"
 }
