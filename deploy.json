@@ -1,0 +1,4 @@
+{
+  "name": "nextjs",
+  "script": "sudo npm run start:prod"
+}
