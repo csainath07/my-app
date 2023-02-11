@@ -60,7 +60,7 @@
 #     # password: 'please use keys'
 #   }
 set :branch, 'main'
-set :deploy_to, '/var/www/my-app'
+set :deploy_to, '/home/ubuntu/my-app'
 server "13.233.183.72", user: "ubuntu", port: 22, roles: %{web}
 
 set :build_command, 'npm run build'
