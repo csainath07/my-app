@@ -16,7 +16,7 @@ namespace :react do
     desc 'FREE PORT 80'
       task :free_port_80 do
         on roles(:all) do
-          execute "sh -c \"if sudo lsof -t -i:80; then sudo kill -9 $(sudo lsof -t -i:80); fi\""
+          execute "sh -c \"if sudo lsof -t -i:3001; then sudo kill -9 $(sudo lsof -t -i:3001); fi\""
         end
     end
 
