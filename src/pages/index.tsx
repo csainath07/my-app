@@ -7,6 +7,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const name = `SELECT * FROM users WHERE id = '1'`;
+
+  function processData(data: any) {
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i]);
+    }
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i] * 2);
+    }
+    // More repetitive code here...
+  }
+
   return (
     <>
       <Head>
