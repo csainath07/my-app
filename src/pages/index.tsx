@@ -6,12 +6,7 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  let a = 1;
-
-  if (a === "1") {
-    console.log("a is 2");
-  }
-
+  const name = `SELECT * FROM users WHERE id = '1'`;
   return (
     <>
       <Head>
@@ -21,6 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <div dangerouslySetInnerHTML={{ __html: name }} />
         <div className={styles.description}>
           <p>
             Get started by editing{" "}
