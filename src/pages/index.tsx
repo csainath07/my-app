@@ -15,9 +15,16 @@ export default function Home() {
     for (let i = 0; i < data.length; i++) {
       console.log(data[i] * 2);
     }
-    // More repetitive code here...
   }
 
+  function _processData(data: any) {
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i]);
+    }
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i] * 2);
+    }
+  }
   return (
     <>
       <Head>
