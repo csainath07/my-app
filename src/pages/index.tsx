@@ -6,6 +6,12 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  let a = 1;
+
+  if (a === "1") {
+    console.log("a is 2");
+  }
+
   return (
     <>
       <Head>
