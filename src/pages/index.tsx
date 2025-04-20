@@ -29,7 +29,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            <code className={styles.code}> src/pages/index.tsx</code>
+            <code className={styles.code}> src/pages/index.tsx</code>[Edited]
           </p>
           <div>
             <a
