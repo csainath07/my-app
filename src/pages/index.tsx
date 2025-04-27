@@ -31,7 +31,7 @@ export default function Home() {
         <div className={styles.description}>
           <p>
             Get started by editing{" "}
-            <code className={styles.code}> src/pages/index.tsx</code> [EDITED]
+            <code className={styles.code}> src/pages/index.tsx</code>
           </p>
           <div>
             <a
