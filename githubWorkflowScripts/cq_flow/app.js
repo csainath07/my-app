@@ -33,17 +33,12 @@ export async function handlePullRequest(payload) {
       score,
       summary,
     });
-    await commentOnPR(
-      owner,
-      repo,
-      number,
-      `🤖 AI Feedback for @${user.login}:\n\n${comment}`,
-    );
+    await commentOnPR(owner, repo, number, comment);
     await saveReviewToGoogleSheet([
       user.login,
       score,
       getPullRequestUrl(owner, repo, number),
-      new Date().toLocaleString(),
+      new Date().toDateString(),
       comment,
     ]);
     console.log(chalk.blue("Completed!!"));
