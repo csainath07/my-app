@@ -8,7 +8,7 @@ export function sanitizeAIResponse(response) {
 
 export function getOverallAIComment(data) {
   return (
-    `**🤖 AI Feedback for @${user.login}:**\n\n` +
+    `**🤖 AI Feedback for @${data.user}:**\n\n` +
     `**Overall Code Quality Score (1-10):**\n${data?.score || "-"}` +
     "\n\n" +
     `**Score Justification & Key Takeaways:**\n${data?.summary || "-"}`
