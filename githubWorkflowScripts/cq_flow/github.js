@@ -16,7 +16,7 @@ export function testEnv() {
 }
 
 export function getPullRequestUrl(owner, repo, number) {
-  return `https://github.com/repos/${owner}/${repo}/pulls/${number}`;
+  return `https://github.com/${owner}/${repo}/pull/${number}`;
 }
 
 export async function getPRDiff(owner, repo, number) {
