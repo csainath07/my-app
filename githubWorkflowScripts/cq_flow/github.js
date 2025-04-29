@@ -31,3 +31,18 @@ export async function commentOnPR(owner, repo, number, body) {
     body
   });
 }
+
+export async function getPRDetails(owner, repo, number) {
+  const res = await githubAPI.get(`/repos/${owner}/${repo}/pulls/${number}`, {
+    headers: { Accept: 'application/json' }
+  });
+  return res.data;
+}
+
+export async function postReviewsOnPR(owner, repo, number, body) {
+  await githubAPI.post(`/repos/${owner}/${repo}/pulls/${number}/reviews`, {
+    ...body,
+    "body": "Overall AI review summary here",
+    "event": "COMMENT",
+  });
+}

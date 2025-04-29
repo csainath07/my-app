@@ -1,10 +1,15 @@
-// app.js
-
-import { config } from 'dotenv';
-import { getPRDiff, commentOnPR } from './github.js';
-import { generateReviewFeedback } from './agent.js';
-import { saveReview, getCodeQualityScoreFromFeedback } from './reviewsManager.js';
-import chalk from 'chalk';
+import { config } from "dotenv";
+import {
+  getPRDiff,
+  commentOnPR,
+  getPRDetails,
+  postReviewsOnPR,
+  getPullRequestUrl,
+} from "./github.js";
+import { generateReviewFeedback } from "./agent.js";
+import { sanitizeAIResponse, getOverallAIComment } from "./helpers.js";
+import { saveReviewToGoogleSheet } from "./google_sheet_db.js";
+import chalk from "chalk";
 
 config();
 
@@ -15,18 +20,32 @@ export async function handlePullRequest(payload) {
 
   try {
     const diff = await getPRDiff(owner, repo, number);
-    console.log(chalk.green(diff));
+    const prDetails = await getPRDetails(owner, repo, number);
     const feedback = await generateReviewFeedback(diff);
-    await commentOnPR(owner, repo, number, `🤖 AI Feedback for @${user.login}:\n\n${feedback}`);
-    const score = getCodeQualityScoreFromFeedback(feedback);
-    const review = {
+    const sanitizeResponsonJSON = JSON.parse(sanitizeAIResponse(feedback));
+    await postReviewsOnPR(owner, repo, number, {
+      comments: [...sanitizeResponsonJSON.comments],
+      commit_id: prDetails?.head?.sha,
+    });
+    const score = sanitizeResponsonJSON.overall_score;
+    const summary = sanitizeResponsonJSON.score_justification;
+    const comment = getOverallAIComment({
+      score,
+      summary,
+    });
+    await commentOnPR(
       owner,
       repo,
-      pull_request_no: number,
+      number,
+      `🤖 AI Feedback for @${user.login}:\n\n${comment}`,
+    );
+    await saveReviewToGoogleSheet([
+      user.login,
       score,
-      feedback
-    }
-    saveReview(user.login, review);
+      getPullRequestUrl(owner, repo, number),
+      new Date().toLocaleString(),
+      comment,
+    ]);
     console.log(chalk.blue("Completed!!"));
   } catch (err) {
     console.error(err);
