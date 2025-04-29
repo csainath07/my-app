@@ -1,0 +1,44 @@
+name: AI Code Quality Score Bot
+
+on:
+    pull_request:
+        types: [opened] #synchronize
+        branches:
+            - main
+            - staging
+
+jobs:
+    ai_review:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Step 1: Checkout the repository
+            - name: Checkout Code
+              uses: actions/checkout@v4.1.1
+              with: 
+                fetch-depth: 0 # Fetch full history to ensure merge base is available
+
+            # Step 2: Set up Node.js environment
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: '22.12.0'
+                cache: 'yarn'
+                cache-dependency-path: '**/yarn.lock'
+            
+            # Step 3: Install dependencies
+            - name: Install Dependencies
+              working-directory: githubWorkflowScripts/cq_flow
+              run: yarn install --frozen-lockfile
+
+            # Step 4: Run AI Code Review
+            - name: Run AI Code Review
+              working-directory: githubWorkflowScripts/cq_flow
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                AI_API_KEY: ${{ secrets.AI_API_KEY }}
+                GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+                GOOGLE_SPREADSHEET_ID: ${{ secrets.GOOGLE_SPREADSHEET_ID }}
+              run: node run.js
+
+
