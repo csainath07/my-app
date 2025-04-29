@@ -30,6 +30,7 @@ export async function handlePullRequest(payload) {
     const score = sanitizeResponsonJSON.overall_score;
     const summary = sanitizeResponsonJSON.score_justification;
     const comment = getOverallAIComment({
+      user: user.login,
       score,
       summary,
     });
